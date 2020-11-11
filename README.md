@@ -3,11 +3,11 @@ Get comments from hanime.tv
 
 Requests are sometimes blocked by Cloudflare but this happens unpredictably so I haven't been able to circumvent it. In the future I might use selenium or something to get around it.
 
-#### Requirements
+### Requirements
 * `Python 3.6` at least (because it uses [secrets](https://docs.python.org/3/library/secrets.html))
 * `python-requests`
 
-#### Usage
+### Usage
 `python3 hanime_comments.py [-h] [-x URL] [-o TEMPLATE] URL [URL ...]`
 
 #### Options
@@ -23,7 +23,7 @@ Requests are sometimes blocked by Cloudflare but this happens unpredictably so I
 * `python3 hanime_comments.py https://hanime.tv/video/hentai/sensitive-pornograph-1`
 * `python3 hanime_comments.py sensitive-pornograph-1`
 
-#### Output
+### Output
 Output is JSON and looks like this:
 ```
 {
@@ -38,6 +38,8 @@ Output is JSON and looks like this:
   }
 }
 ```
+[There's an example of this in the repo.](example.json)
+
 `num_threads` is the number of top-level comments and in my tests it's always been accurate. `num_comments` is purportedly the number of comments but in my tests the number of comments that you can see is always smaller (even on the website).
 
 For example these are the numbers for https://hanime.tv/videos/hentai/sensitive-pornograph-1 on 2020-11-11:
@@ -52,7 +54,7 @@ For example these are the numbers for https://hanime.tv/videos/hentai/sensitive-
 ```
 Not really sure what's going on here, but it matches what you get on the website so it's fine I guess.
 
-#### Usage within Python
+### Usage within Python
 ```
 import requests
 import hanime_comments
