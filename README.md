@@ -64,3 +64,7 @@ hanime = hanime_comments.Hanime(session)
 
 comments = hanime.get_comments('https://hanime.tv/videos/hentai/sensitive-pornograph-1')
 ```
+
+### To do
+* More explanatory comments
+* Progress bar
