@@ -190,7 +190,7 @@ if __name__ == '__main__':
     parser._optionals.title = 'Options'
     parser.add_argument('-h', '--help', help='Show this help message and exit', action='help', default=argparse.SUPPRESS)
     parser.add_argument('-x', '--proxy', metavar='URL', help='URL of the proxy server to use')
-    parser.add_argument('-o', '--output',  metavar='TEMPLATE', default='{video_slug}.json', help="Output filename template, default '{video_slug}.json'")
+    parser.add_argument('-o', '--output', metavar='TEMPLATE', default='{video_slug}.json', help="Output filename template, default '{video_slug}.json'")
     parser.add_argument('urls', metavar='URL', nargs='+', help=argparse.SUPPRESS)
     args = parser.parse_args()
 
