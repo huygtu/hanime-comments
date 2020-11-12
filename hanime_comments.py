@@ -157,14 +157,15 @@ class Hanime:
         for reply in self._get_replies(parent):
             self._get_comments(comments, queue, reply)
 
-    def get_comments(self, url):
+    def get_comments(self, url, verbose=False):
         '''
         Get all the comments on a hanime.tv video
         Threads are flattened depth first so any comment's replies will directly follow it
         If url and video_id are both provided, video_id overrides url
         '''
         video = self._get_video(url)
-        print('Getting', video['id'])
+        if verbose:
+            print('Getting', video['id'])
 
         comments = []
         queue = collections.deque()
@@ -203,7 +204,7 @@ if __name__ == '__main__':
     hanime = Hanime(session)
 
     for url in args.urls:
-        result = hanime.get_comments(url)
+        result = hanime.get_comments(url, verbose=True)
 
         info = {'video_slug': result['video']['slug'],
                 'video_id':   result['video']['id']}
