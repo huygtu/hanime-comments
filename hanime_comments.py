@@ -9,9 +9,6 @@ import urllib.parse
 
 _RE_VALID_URL  = re.compile(r'(?:(?:https?://)?hanime.tv/videos/hentai/)?(?P<slug>[a-z\d-]+)')
 _RE_VIDEO_ID   = re.compile(r'"hv_id":\s*(?P<id>\d+)[,}]')
-_RE_CLOUDFLARE = re.compile(r'<title>Access denied \| hanime\.tv used Cloudflare to restrict access</title>')
-
-_URL_VIDEO_PAGE = 'https://hanime.tv/videos/hentai/{slug}'
 
 _API_VIDEO       = 'https://hw.hanime.tv/api/v8/video'
 _API_COMMENTS_L0 = 'https://hr.hanime.tv/api/v8/hthreads'
