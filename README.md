@@ -68,3 +68,4 @@ comments = hanime.get_comments('https://hanime.tv/videos/hentai/sensitive-pornog
 ### To do
 * More explanatory comments
 * Progress bar
+* Option to download in most recent order
