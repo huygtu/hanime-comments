@@ -194,7 +194,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Download comments from hanime.tv',
                                      add_help=False,
                                      usage='\b\b\b\b\b\b\bUsage: hanime_comments.py [-h] [-x URL] [-o TEMPLATE] URL [URL ...]',
-                                     epilog='Output template keys:\n  video_slug  e.g. sensitive-pornograph-1\n  video_id    e.g. 2714\n\nExample usage:\n  python3 hanime_comments.py https://hanime.tv/video/hentai/sensitive-pornograph-1\n  python3 hanime_comments.py sensitive-pornograph-1',
+                                     epilog='Output template keys:\n  video_slug  e.g. sensitive-pornograph-1\n  video_id    e.g. 2714\n\nExample usage:\n  python3 hanime_comments.py https://hanime.tv/videos/hentai/sensitive-pornograph-1\n  python3 hanime_comments.py sensitive-pornograph-1',
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
     parser._optionals.title = 'Options'
     parser.add_argument('-h', '--help', help='Show this help message and exit', action='help', default=argparse.SUPPRESS)
