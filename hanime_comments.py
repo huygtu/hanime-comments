@@ -38,8 +38,8 @@ class Hanime:
         Send a GET request to a hanime.tv API URL
         '''
         hostname = urllib.parse.urlparse(api_url).netloc
-        _HEADERS['Host'] = hostname
-        headers = {'X-Signature-Version': 'web2',
+        headers = {'Host': hostname,
+                   'X-Signature-Version': 'web2',
                    'X-Signature': secrets.token_hex(32)}
         response = self.session.get(api_url, params=params, headers=headers)
 
