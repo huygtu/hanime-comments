@@ -20,7 +20,7 @@ Requests are sometimes blocked by Cloudflare but this happens unpredictably so I
 * `video_id`, e.g. `2714`
 
 #### Example usage
-* `python3 hanime_comments.py https://hanime.tv/video/hentai/sensitive-pornograph-1`
+* `python3 hanime_comments.py https://hanime.tv/videos/hentai/sensitive-pornograph-1`
 * `python3 hanime_comments.py sensitive-pornograph-1`
 
 ### Output
