@@ -43,7 +43,7 @@ class Hanime:
         '''
         hostname = urllib.parse.urlparse(api_url).netloc
         headers = {'Host': hostname}
-        if hostname == 'hr.hanime.tv':
+        if hostname != 'hw.hanime.tv':
             headers['X-Signature-Version'] = 'web2'
             headers['X-Signature']         = secrets.token_hex(32)
         response = self.session.get(api_url, params=params, headers=headers)
