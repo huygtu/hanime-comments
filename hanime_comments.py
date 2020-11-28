@@ -15,6 +15,10 @@ _API_COMMENTS_L1 = 'https://hr.hanime.tv/api/v8/hthread_comments'
 _API_COMMENTS_L2 = 'https://hr.hanime.tv/api/v8/hthread_comment_comments'
 _API_USERS       = 'https://members.hanime.tv/rapi/v7/users'
 
+class CloudflareError(Exception):
+    pass
+
+
 class Hanime:
     def __init__(self, requests_session=None):
         self.session = requests_session or requests.Session()
@@ -38,9 +42,10 @@ class Hanime:
         Send a GET request to a hanime.tv API URL
         '''
         hostname = urllib.parse.urlparse(api_url).netloc
-        headers = {'Host': hostname,
-                   'X-Signature-Version': 'web2',
-                   'X-Signature': secrets.token_hex(32)}
+        headers = {'Host': hostname}
+        if hostname == 'hr.hanime.tv':
+            headers['X-Signature-Version'] = 'web2'
+            headers['X-Signature']         = secrets.token_hex(32)
         response = self.session.get(api_url, params=params, headers=headers)
 
         # clear any cookies accrued with that request
@@ -48,6 +53,10 @@ class Hanime:
             self.session.cookies.clear(domain=hostname)
         except KeyError:
             pass
+
+        if response.status_code == 403 and b'cloudflare' in response.content or b'Cloudflare' in response.content:
+            error_msg = re.search(r'<title>([^<]+)</title>', response.text).group(1).strip()
+            raise CloudflareError(error_msg, response)
 
         response.raise_for_status()
         return response.json()
